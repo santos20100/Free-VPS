@@ -1,16 +1,20 @@
-name: Windows-RDP
+name: RDP-Windows2020
 
 on: workflow_dispatch
 
 jobs:
+
   build:
 
-    runs-on: windows-latest
-    timeout-minutes: 999999999999
+    runs-on: Windows-2022
+
+    timeout-minutes: 360
 
     steps:
-    - name: Download Ngrok.
-      run: |
+
+      name: Dawnload  Program Ngrok.
+
+      run: | 
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/DinhPhuc/windows-rdp/main/start.bat -OutFile start.bat
         Invoke-WebRequest https://raw.githubusercontent.com/DinhPhuc/windows-rdp/main/wallpaper.png -OutFile wallpaper.png
@@ -42,4 +46,5 @@ jobs:
     - name: Connect RDP CPU 2 Core - 7GB Ram - 256 SSD.
       run: cmd /c start.bat
     - name: Successful implementation! You can close the tab now.
-      run: cmd /c loop.bat
+      run: cmd /c loop.batt
+    
